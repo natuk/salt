@@ -59,5 +59,176 @@
                 }
             ]
     	}
+    	{
+    	    "rdfs:label": "Context mapping between Ashmolean people and CBDB",
+    	    "salt:relatesSet": [
+    	        {
+    	            "@type": "salt:saltset",
+    	            "@id": "saltsets:ash_people",
+    	            "rdfs:label": "Ashmolean people"
+    	        },
+    	        {
+    	            "@type": "salt:saltset",
+    	            "@id": "saltsets:cbdb_people",
+    	            "rdfs:label": "CBDB people"
+    	        }
+    	    ],
+    	    "salt:hasContextItem": [
+    	        {
+    	            "@type": "salt:contextItem",
+    	            "@id": "salt:ash_people_cbdb_people_match",
+    	            "salt:contextWeighing": "2",
+    	            "rdfs:label": "match",
+    	            "salt:contextPath": [
+                        {
+                            "@id": "listitem:ash_people",
+                            "@type": "salt:listItem",
+                            "rdfs:label": {"@id": "listitem:ash_people_label"},
+                            "salt:in_saltset": {"@id": "saltsets:ash_people"},
+                            "slobr:matchParticipant": {
+                                "@id": "_:match"
+                            }
+                        },
+                        {
+                            "@id": "listitem:cbdb_people",
+                            "@type": "salt:listItem",
+                            "rdfs:label": {"@id": "listitem:cbdb_people_label"},
+                            "salt:in_saltset": { "@id":"saltsets:cbdb_people"},
+                            "slobr:matchParticipant": {
+                                "@id": "_:match"
+                            }
+                        }
+                    ]
+    	        },
+    	        {
+    	            "@type": "salt:contextItem",
+    	            "@id": "salt:ash_people_cbdb_people_birthdate",
+    	            "salt:contextualWeighing": "10",
+    	            "rdfs:label": "birthdate",
+    	            "salt:contextPath": [
+    	                {
+    	                    "@id": "listitem:ash_people",
+    	                    "@type": "salt:listitem",
+    	                    "rdfs:label": {"@id": "listitem:ash_people_label"},
+    	                    "salt:in_saltset": {"@id": "saltsets:ash_people"},
+    	                    "crm:P98i_was_born": {
+    	                        "crm:P4_has_time-span": {
+    	                            "crm:P82a_begin_of_the_begin": {
+    	                                "@id": "_:birthdate"
+    	                            }
+    	                        }
+    	                    }
+    	                },
+    	                {
+    	                    "@id": "listitem:cbdb_people",
+    	                    "@type": "salt:listitem",
+    	                    "rdfs:label": {"@id": "listitem:cbdb_people_label"},
+    	                    "salt:in_saltset": {"@id": "saltsets:cbdb_people"},
+    	                    "crm:P98i_was_born": {
+    	                        "crm:P4_has_time-span": {
+    	                            "crm:P82a_begin_of_the_begin": {
+    	                                "@id": "_:birthdate"
+    	                            }
+    	                        }
+    	                    }
+    	                }
+    	            ]
+    	        },
+    	        {
+    	            "@type": "salt:contextItem",
+    	            "@id": "salt:ash_people_cbdb_people_deathdate",
+    	            "salt:contextualWeighing": "10",
+    	            "rdfs:label": "deathdate",
+    	            "salt:contextPath": [
+    	                {
+    	                    "@id": "listitem:ash_people",
+    	                    "@type": "salt:listitem",
+    	                    "rdfs:label": {"@id": "listitem:ash_people_label"},
+    	                    "salt:in_saltset": {"@id": "saltsets:ash_people"},
+    	                    "crm:P100i_died_in": {
+    	                        "crm:P4_has_time-span": {
+    	                            "crm:P82b_end_of_the_end": {
+    	                                "@id": "_:deathdate"
+    	                            }
+    	                        }
+    	                    }
+    	                },
+    	                {
+    	                    "@id": "listitem:cbdb_people",
+    	                    "@type": "salt:listitem",
+    	                    "rdfs:label": {"@id": "listitem:cbdb_people_label"},
+    	                    "salt:in_saltset": {"@id": "saltsets:cbdb_people"},
+    	                    "crm:P100i_died_in": {
+    	                        "crm:P4_has_time-span": {
+    	                            "crm:P82b_end_of_the_end": {
+    	                                "@id": "_:deathdate"
+    	                            }
+    	                        }
+    	                    }
+    	                }
+    	            ]
+    	        },
+    	        {
+    	            "@type": "salt:contextItem",
+    	            "@id": "salt:ash_people_cbdb_people_birthplace",
+    	            "salt:contextualWeighing": "10",
+    	            "rdfs:label": "birthplace",
+    	            "salt:contextPath": [
+    	                {
+    	                    "@id": "listitem:ash_people",
+    	                    "@type": "salt:listitem",
+    	                    "rdfs:label": {"@id": "listitem:ash_people_label"},
+    	                    "salt:in_saltset": {"@id": "saltsets:ash_people"},
+    	                    "crm:P98i_was_born": {
+    	                        "crm:P7_took_place_at": {
+    	                            "@id": "_:birthplace"
+    	                        }
+    	                    }
+    	                },
+    	                {
+    	                    "@id": "listitem:cbdb_people",
+    	                    "@type": "salt:listitem",
+    	                    "rdfs:label": {"@id": "listitem:cbdb_people_label"},
+    	                    "salt:in_saltset": {"@id": "saltsets:cbdb_people"},
+    	                    "crm:P98i_was_born": {
+    	                        "crm:P7_took_place_at": {
+    	                            "@id": "_:birthplace"
+    	                        }
+    	                    }
+    	                }
+    	            ]
+    	        },
+    	        {
+    	            "@type": "salt:contextItem",
+    	            "@id": "salt:ash_people_cbdb_people_deathplace",
+    	            "salt:contextualWeighing": "10",
+    	            "rdfs:label": "deathplace",
+    	            "salt:contextPath": [
+    	                {
+    	                    "@id": "listitem:ash_people",
+    	                    "@type": "salt:listitem",
+    	                    "rdfs:label": {"@id": "listitem:ash_people_label"},
+    	                    "salt:in_saltset": {"@id": "saltsets:ash_people"},
+    	                    "crm:P100i_died_in": {
+    	                        "crm:P7_took_place_at": {
+    	                            "@id": "_:deathplace"
+    	                        }
+    	                    }
+    	                },
+    	                {
+    	                    "@id": "listitem:cbdb_people",
+    	                    "@type": "salt:listitem",
+    	                    "rdfs:label": {"@id": "listitem:cbdb_people_label"},
+    	                    "salt:in_saltset": {"@id": "saltsets:cbdb_people"},
+    	                    "crm:P100i_died_in": {
+    	                        "crm:P7_took_place_at": {
+    	                            "@id": "_:deathplace"
+    	                        }
+    	                    }
+    	                }
+    	            ]
+    	        }
+    	    ]
+    	}
     ]
 }

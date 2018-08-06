@@ -1,0 +1,11 @@
+PREFIX salt: <http://slobr.linkedmusic.org/salt/>
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+
+SELECT DISTINCT ?uri ?appellation WHERE {{
+    {0}
+    ?uri salt:in_saltset <http://slobr.linkedmusic.org/saltsets/mnh_people> .
+    OPTIONAL {{
+    	?uri crm:P1_is_identified_by ?appeluri .
+    	?appeluri rdfs:label ?appellation .
+    }}
+}}

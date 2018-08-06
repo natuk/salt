@@ -58,7 +58,7 @@
                     ]
                 }
             ]
-    	}
+    	},
     	{
     	    "rdfs:label": "Context mapping between Ashmolean people and CBDB",
     	    "salt:relatesSet": [
@@ -86,7 +86,8 @@
                             "rdfs:label": {"@id": "listitem:ash_people_label"},
                             "salt:in_saltset": {"@id": "saltsets:ash_people"},
                             "slobr:matchParticipant": {
-                                "@id": "_:match"
+                                "@id": "_:match",
+                                "@type": "slobr:exactMatch"
                             }
                         },
                         {

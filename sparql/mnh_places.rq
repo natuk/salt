@@ -1,0 +1,7 @@
+PREFIX salt: <http://slobr.linkedmusic.org/salt/>
+
+SELECT DISTINCT ?uri ?label
+WHERE {
+    ?uri salt:in_saltset <http://slobr.linkedmusic.org/saltsets/mnh_places> .
+    ?uri rdfs:label ?label
+}

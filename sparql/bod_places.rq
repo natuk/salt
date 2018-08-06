@@ -1,0 +1,11 @@
+PREFIX salt: <http://slobr.linkedmusic.org/salt/>
+
+SELECT DISTINCT ?uri ?label
+WHERE {
+    ?uri salt:in_saltset <http://slobr.linkedmusic.org/saltsets/bod_places> .
+    ?uri rdfs:label ?lab .
+    BIND(REPLACE(?lab, "\\[", "(") as ?lab1) .
+    BIND(REPLACE(?lab1, "\\{", "(") as ?lab2) .
+    BIND(REPLACE(?lab2, "\\}", ")") as ?lab3) .
+    BIND(REPLACE(?lab3, "\\]", ")") as ?label) .
+}

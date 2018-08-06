@@ -1,0 +1,21 @@
+PREFIX salt: <http://slobr.linkedmusic.org/salt/>
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+
+SELECT DISTINCT ?uri (?appellabel AS ?appellation) ?birthdate ?birthplace ?deathdate ?deathplace WHERE {{
+    {0}
+    ?uri salt:in_saltset <http://slobr.linkedmusic.org/saltsets/cbdb_people> .
+    OPTIONAL {{
+    	?uri crm:P1_is_identified_by ?appeluri .
+    	?appeluri rdfs:label ?appellabel .
+    	?uri crm:P98i_was_born ?birth .
+    	?birth crm:P4_has_time-span ?birthtimespan .
+    	?birthtimespan crm:P82a_begin_of_the_begin ?birthdate .
+    	?birth crm:P7_took_place_at ?birthp .
+    	?birthp rdfs:label ?birthplace .
+    	?uri crm:P100i_died_in ?death .
+    	?death crm:P4_has_time-span ?deathtimespan .
+    	?deathtimespan crm:P82b_end_of_the_end ?deathdate .
+    	?death crm:P7_took_place_at ?deathp .
+    	?deathp rdfs:label ?deathplace
+    }}
+}}

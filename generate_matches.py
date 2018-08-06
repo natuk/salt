@@ -17,7 +17,7 @@ def main():
 
     threshold = 80 #have to match or beat this score for inclusion in the results
 
-    sparql = SPARQLWrapper("http://127.0.0.1:8890/sparql")
+    sparql = SPARQLWrapper("http://localhost:9999/blazegraph/namespace/exemplar/sparql")
     sparql.setReturnFormat(JSON)
     for filename in sys.argv[1:]:
         queryFromFile = open(filename).read()

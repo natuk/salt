@@ -1,14 +1,21 @@
 PREFIX dcterm: <http://purl.org/dc/terms/>
 PREFIX salt: <http://slobr.linkedmusic.org/salt/>
 PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+PREFIX wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX lawd: <http://lawd.info/ontology/>
 
-SELECT ?uri ?appelenlabel ?description (strbefore(strafter(?period,"="), ";") AS ?start) (strbefore(strafter(strafter(?period,";"), "="), ";") AS ?end) WHERE  {{
+SELECT ?uri ?appelenlabel ?description ?label ?lat ?long (strbefore(strafter(?period,"="), ";") AS ?start) (strbefore(strafter(strafter(?period,";"), "="), ";") AS ?end) WHERE  {{
     {0}
     ?uri salt:in_saltset <http://slobr.linkedmusic.org/saltsets/chgis_places> .
     ?uri rdfs:label ?appelenlabel .
     OPTIONAL {{
       ?uri dcterm:temporal ?period .
-      ?uri dcterm:description ?description
+      ?uri dcterm:description ?description .
+      ?uri wgs:location ?loc .
+      ?loc wgs:lat ?lat .
+      ?loc wgs:long ?long .
+      ?uri lawd:hasName ?name .
+      ?name lawd:primaryForm ?label
     }}
 }}
 

@@ -15,7 +15,7 @@ def main():
 
     queryResults = dict()
 
-    threshold = 80 #have to match or beat this score for inclusion in the results
+    threshold = 95 #have to match or beat this score for inclusion in the results
 
     sparql = SPARQLWrapper("http://localhost:9999/blazegraph/namespace/exemplar/sparql")
     sparql.setReturnFormat(JSON)
